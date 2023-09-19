@@ -2,7 +2,13 @@ import Post from "../models/post";
 
 const PostsController = {
   getPosts: async (req, res) => {
-    // Implement logic to fetch and return posts
+    try {
+      const posts = await Post.find();
+      res.status(201).json(posts);
+    } catch (error) {
+      console.error("Error getting post:", error);
+      res.status(500).json({ error: "Internal Server Error" });
+    }
   },
 
   getPostById: async (req, res) => {
@@ -11,8 +17,6 @@ const PostsController = {
 
   createPost: async (req, res) => {
     try {
-      console.log("I'm here!", req.body);
-
       const { title, body } = req.body;
       const newPost = await Post.create({
         title,
