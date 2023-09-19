@@ -1,0 +1,11 @@
+@baseUrl=http://localhost:3000
+
+# POST {{baseUrl}}/posts
+# Content-Type: application/json
+
+# {
+#     "title": "Post 2",
+#     "body": "Title of the post..."
+# }
+
+GET {{baseUrl}}/posts
