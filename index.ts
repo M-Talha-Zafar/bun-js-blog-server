@@ -1,14 +1,13 @@
 import connectToMongoDB from "./helpers/db";
 import postRoutes from "./routes/posts";
 import express from "express";
-import bodyParser from "body-parser";
 import cors from "cors";
 
 connectToMongoDB();
 
 const app = express();
 
-app.use(bodyParser.json());
+app.use(express.json());
 
 app.use(cors());
 
